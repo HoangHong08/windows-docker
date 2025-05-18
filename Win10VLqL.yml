@@ -2,14 +2,13 @@ version: "3.9"
 services:
   windows:
     image: dockurr/windows
-    container_name: windows
     environment:
       VERSION: "10"
       USERNAME: "HoangHong08"
       PASSWORD: "0range_Cat"
       RAM_SIZE: "4G"
       CPU_CORES: "4"
-      DISK_SIZE: "500G"
+      DISK_SIZE: "128G"
     devices:
       - "/dev/kvm"
       - "/dev/net/tun"

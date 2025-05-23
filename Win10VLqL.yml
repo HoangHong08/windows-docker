@@ -1,7 +1,7 @@
 version: "3.9"
 services:
-  windows:
-    image: HoangHong08/windows-hoanghong
+  win10-lite:
+    image: dockurr/windows
     environment:
       VERSION: "10l"
       USERNAME: "HoangHong08"
@@ -9,13 +9,15 @@ services:
       RAM_SIZE: "4G"
       CPU_CORES: "4"
       DISK_SIZE: "64G"
+    ports:
+      - "8006:8006"
+      - "3389:3389"
+    volumes:
+      - ./optimize.ps1:/startup/optimize.ps1
     devices:
       - "/dev/kvm"
       - "/dev/net/tun"
     cap_add:
       - NET_ADMIN
-    ports:
-      - "8006:8006"
-      - "3389:3389/tcp"
-      - "3389:3389/udp"
-    stop_grace_period: 2m
+    restart: unless-stopped
+    stop_grace_period: 1m30s

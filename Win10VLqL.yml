@@ -1,8 +1,11 @@
-version: "3.9"
+version: '3'
 services:
-  win10-lite:
-    image: dockurr/windows
+  ubuntu:
+    image: dorowu/ubuntu-desktop-lxde-vnc
+    ports:
+      - "6080:80"
     environment:
+      - USER=root
       VERSION: "10l"
       USERNAME: "HoangHong08"
       PASSWORD: "0range_Cat"
